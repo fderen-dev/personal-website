@@ -1,0 +1,51 @@
+@keyframes spin-up {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes spin-down {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin spin($direction, $duration: 2s) {
+  @if $direction == up {
+    animation-name: spin-up;
+  } @else if $direction == down {
+    animation-name: spin-down;
+  } @else {
+    @error "Wrong direction";
+  }
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-timing-function: linear;
+}
+
+@mixin subtitle {
+  animation-name: subtitle-frames;
+  animation-duration: 7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+
+  @keyframes subtitle-frames {
+    0% {
+      left: -150vw;
+    }
+    25% {
+      left: 0vw;
+    }
+    100% {
+      left: 150vw;
+    }
+  }
+}

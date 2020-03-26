@@ -1,0 +1,39 @@
+@import '../../styles/animations';
+
+.gear {
+  display: relative;
+  position: fixed;
+  z-index: 0;
+
+  & > svg {
+    height: auto;
+    fill: black;
+    &.up {
+      @include spin(up, 7s);
+    }
+    &.down {
+      @include spin(down, 7s);
+    }
+    &.paused {
+      animation-play-state: paused;
+    }
+  }
+
+  @media screen and (orientation: portrait) {
+    top: calc(50vh - 25vw);
+    left: 25vw;
+
+    & > svg {
+      width: 50vw;
+    }
+  }
+
+  @media screen and (orientation: landscape) {
+    top: 25vh;
+    left: calc(50vw - 25vh);
+
+    & > svg {
+      width: 50vh;
+    }
+  }
+}

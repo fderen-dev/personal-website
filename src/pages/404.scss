@@ -1,0 +1,49 @@
+@import '../styles/animations';
+
+.not-found {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  .subtitle {
+    position: relative;
+    width: 100%;
+    top: 50vh;
+    text-align: center;
+
+    h2 {
+      position: relative;
+      font-family: 'Teko';
+      @include subtitle;
+    }
+  }
+
+  @media screen and (orientation: portrait) {
+    & > .gear {
+      top: 30vh;
+      left: 25vw;
+      & > svg {
+        width: 50vw;
+      }
+    }
+
+    .subtitle {
+      top: 55vh;
+    }
+  }
+
+  @media screen and (orientation: landscape) {
+    .gear {
+      top: 15vh;
+      left: calc(50vw - 25vh);
+      & > svg {
+        width: 50vh;
+      }
+    }
+
+    .subtitle {
+      top: 70vh;
+    }
+  }
+}

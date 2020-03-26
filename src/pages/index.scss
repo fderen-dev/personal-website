@@ -1,0 +1,65 @@
+@import '../styles/colors';
+
+#title {
+  display: inline-flex;
+  width: auto;
+
+  div {
+    position: relative;
+    display: inline-block;
+    width: auto;
+  }
+
+  h1 {
+    display: inline-block;
+  }
+
+  .typewriter,
+  .typewriter-clone {
+    width: 100%;
+    border-right: solid 3px $yellow;
+    white-space: nowrap;
+    animation: animated-cursor 600ms steps(29, end) infinite;
+    letter-spacing: 0.18rem;
+
+    @keyframes animated-cursor {
+      from {
+        border-right-color: $yellow;
+      }
+      to {
+        border-right-color: transparent;
+      }
+    }
+  }
+
+  .typewriter {
+    width: auto;
+    overflow: hidden;
+    animation: animated-text 4s steps(29, end) 1s 1 normal both,
+      animated-cursor 600ms steps(29, end) infinite;
+
+    @keyframes animated-text {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+  }
+}
+
+#about,
+#skills {
+  h2 {
+    margin-bottom: 3%;
+  }
+}
+
+#about {
+  a {
+    font-weight: bolder;
+    color: white;
+    white-space: nowrap;
+  }
+}

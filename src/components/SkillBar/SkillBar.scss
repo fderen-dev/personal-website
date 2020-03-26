@@ -1,0 +1,62 @@
+@import '../../styles/colors';
+
+.skill-bar {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  .logo {
+    position: relative;
+    display: flex;
+    width: 10%;
+    height: auto;
+    max-height: 100%;
+
+    & svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .bar {
+    position: relative;
+    display: flex;
+    height: 70%;
+    min-height: 25px;
+    width: 0;
+    margin: 0 0 0 2%;
+    align-items: center;
+    transition: width linear 1.3s;
+    &.visible {
+      width: 78%;
+    }
+    & div {
+      position: relative;
+      height: inherit;
+      background: linear-gradient(
+        to right,
+        rgba(252, 219, 3, 0) 1%,
+        rgba(252, 219, 3, 0.1) 5%,
+        rgba(252, 219, 3, 0.2) 10%,
+        rgba(252, 219, 3, 0.3) 20%,
+        rgba(252, 219, 3, 0.5) 50%,
+        rgba(252, 219, 3, 0.8)
+      );
+    }
+  }
+
+  .value {
+    position: relative;
+    width: 10%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .skill-bar {
+    height: 10vh;
+  }
+}
