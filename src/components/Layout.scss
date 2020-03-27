@@ -64,6 +64,7 @@ section {
 }
 
 h1,
+.h1,
 h2,
 h3,
 h4,
@@ -71,7 +72,8 @@ h5 {
   color: $yellow;
 }
 
-h1 {
+h1,
+.h1 {
   font-size: 3.5rem;
   font-family: 'Teko';
 }
@@ -93,7 +95,8 @@ h2 {
     font-size: 1.2rem;
   }
 
-  h1 {
+  h1,
+  .h1 {
     font-size: 4.5rem;
   }
 
@@ -112,7 +115,8 @@ h2 {
     font-size: 1.7rem;
   }
 
-  h1 {
+  h1,
+  .h1 {
     font-size: 6.5rem;
   }
 
@@ -131,7 +135,8 @@ h2 {
     font-size: 1.7rem;
   }
 
-  h1 {
+  h1,
+  .h1 {
     font-size: 6.5rem;
   }
 

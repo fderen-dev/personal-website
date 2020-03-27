@@ -1,11 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: 'Filip Derenowski',
+    title: 'Filip Derenowski - full-stack developer - personal website',
+    description: 'Full-stack developer, focusing on JavaScript, real React.js fanboy - Filip Derenowski.',
     author: 'Filip Derenowski',
-    link: 'https://www.fderenowski.dev',
+    siteUrl: 'https://fderenowski.dev',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        ErrorDocument: `ErrorDocument 404 /404.html`,
+       }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -38,6 +46,7 @@ module.exports = {
           include: /static/
         }
       }
-    }
+    },
+    'gatsby-plugin-robots-txt'
   ],
 };

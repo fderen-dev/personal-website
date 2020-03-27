@@ -9,13 +9,13 @@ import './index.scss';
 const IndexPage: FunctionComponent = () => (
   <Layout>
     <SEO />
-    <section id="title">
+    <section className="title">
       <div>
         <h1>Filip Derenowski</h1>
         <h3 className="typewriter">Full-stack developer</h3>
       </div>
     </section>
-    <section id="about">
+    <section className="about">
       <h2>about</h2>
       <p>
         Born, raised and graduated computer science in Opole, Poland - I am
@@ -41,15 +41,15 @@ const IndexPage: FunctionComponent = () => (
         .
       </p>
     </section>
-    <section id="skills">
+    <section className="skills">
       <h2>skills</h2>
       <div className="stats-container">
         <SkillSet />
       </div>
     </section>
-    <section id="title" className="clone">
+    <section className="title clone">
       <div>
-        <h1>Filip Derenowski</h1>
+        <span className="h1">Filip Derenowski</span>
         <h3 className="typewriter">Full-stack developer</h3>
       </div>
     </section>

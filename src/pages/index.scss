@@ -1,6 +1,6 @@
 @import '../styles/colors';
 
-#title {
+.title {
   display: inline-flex;
   width: auto;
 
@@ -49,14 +49,14 @@
   }
 }
 
-#about,
-#skills {
+.about,
+.skills {
   h2 {
     margin-bottom: 3%;
   }
 }
 
-#about {
+.about {
   a {
     font-weight: bolder;
     color: white;
