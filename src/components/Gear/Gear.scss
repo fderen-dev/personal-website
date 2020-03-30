@@ -20,6 +20,7 @@
   }
 
   @media screen and (orientation: portrait) {
+    top: -webkit-calc(50vh - 25vw);
     top: calc(50vh - 25vw);
     left: 25vw;
 
@@ -30,6 +31,7 @@
 
   @media screen and (orientation: landscape) {
     top: 25vh;
+    left: -webkit-calc(50vw -25vh);
     left: calc(50vw - 25vh);
 
     & > svg {

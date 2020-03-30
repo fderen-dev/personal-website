@@ -10,7 +10,14 @@
     width: auto;
   }
 
-  h1 {
+  .h1 {
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+  h1,
+  .h1 {
     display: inline-block;
   }
 
