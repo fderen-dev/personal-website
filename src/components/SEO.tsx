@@ -29,10 +29,6 @@ const Header: FunctionComponent = () => {
       <meta name="author" content={data.site.siteMetadata.author} />
       <meta name="url" content={data.site.siteMetadata.siteUrl} />
       <meta name="identifier-URL" content={data.site.siteMetadata.siteUrl} />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Exo|Mitr|Teko&display=swap"
-      />
       <html lang="en" />
     </Helmet>
   );

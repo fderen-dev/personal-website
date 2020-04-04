@@ -47,6 +47,22 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-robots-txt'
+    'gatsby-plugin-robots-txt',
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Exo`
+          },
+          {
+            family: `Mitr`,
+          },
+          {
+            family: `Teko`
+          }
+        ],
+      },
+    }
   ],
 };
