@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
 // @ts-ignore
+
 import GearIcon from '../../static/gear.svg';
+
 import './Gear.scss';
 
 export interface GearProps {

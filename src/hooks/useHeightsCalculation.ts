@@ -1,4 +1,4 @@
-import { useLayoutEffect, MutableRefObject, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 export interface HeightsData {
   container: number;
@@ -24,19 +24,18 @@ export function useHeightsCalculation(
   targetElement: HTMLElement | null,
   wait?: number
 ): void {
-  const throttleTimeoutRef: MutableRefObject<NodeJS.Timer | null> = useRef(
+  const throttleTimeoutRef: React.MutableRefObject<NodeJS.Timer | null> = useRef(
     null
   );
 
   useLayoutEffect(() => {
     const callback = (): void => {
-      const heights: HeightsData = {
+      targetFn({
         container: targetElement
           ? targetElement.scrollHeight
           : window.document.body.scrollHeight,
         clones: getClonesHeight(),
-      };
-      targetFn(heights);
+      });
       if (wait) throttleTimeoutRef.current = null;
     };
 
@@ -51,5 +50,5 @@ export function useHeightsCalculation(
     callback();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [targetElement, targetFn, wait]);
 }

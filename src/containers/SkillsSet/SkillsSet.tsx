@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 import VisiblitySensor from 'react-visibility-sensor';
 
 import SkillBar from '../../components/SkillBar';
@@ -10,13 +10,11 @@ import CssIcon from '../../static/css.svg';
 //@ts-ignore
 import JsIcon from '../../static/js.svg';
 //@ts-ignore
-import AndroidIcon from '../../static/android.svg';
-//@ts-ignore
-import PythonIcon from '../../static/python.svg';
+import Ricon from '../../static/react-icon.svg';
 
-import './SkillSet.scss';
+import './SkillsSet.scss';
 
-const SkillSet: FunctionComponent = () => {
+const SkillsSet: React.FunctionComponent = () => {
   const [isVisible, setVisiblity] = useState<boolean>(false);
   return (
     <VisiblitySensor onChange={setVisiblity}>
@@ -30,15 +28,12 @@ const SkillSet: FunctionComponent = () => {
         <SkillBar name="JavaScript" value={50} visible={isVisible}>
           <JsIcon />
         </SkillBar>
-        <SkillBar name="Android" value={35} visible={isVisible}>
-          <AndroidIcon />
-        </SkillBar>
-        <SkillBar name="Python" value={35} visible={isVisible}>
-          <PythonIcon />
+        <SkillBar name="React" value={70} visible={isVisible}>
+          <Ricon />
         </SkillBar>
       </div>
     </VisiblitySensor>
   );
 };
 
-export default SkillSet;
+export default SkillsSet;

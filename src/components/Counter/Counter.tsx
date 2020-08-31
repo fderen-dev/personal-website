@@ -1,10 +1,4 @@
-import React, {
-  FunctionComponent,
-  useState,
-  useEffect,
-  useRef,
-  MutableRefObject,
-} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface CounterProps {
   targetValue: number;
@@ -12,12 +6,13 @@ interface CounterProps {
   start: boolean;
 }
 
-const Counter: FunctionComponent<CounterProps> = props => {
+const Counter: React.FunctionComponent<CounterProps> = props => {
   const { targetValue, timeMs, start } = props;
   const [displayValue, setDisplayValue] = useState<number>(0);
-  const intervalHandlerRef: MutableRefObject<NodeJS.Timeout | null> = useRef(
+  const intervalHandlerRef: React.MutableRefObject<NodeJS.Timeout | null> = useRef(
     null
   );
+
   useEffect(() => {
     if (start === true) {
       if (intervalHandlerRef.current === null) {
@@ -32,14 +27,14 @@ const Counter: FunctionComponent<CounterProps> = props => {
       }
       setDisplayValue(0);
     }
-  }, [start]);
+  }, [start, timeMs]);
 
   useEffect(() => {
     if (displayValue === targetValue && intervalHandlerRef.current !== null) {
       clearInterval(intervalHandlerRef.current);
       intervalHandlerRef.current = null;
     }
-  }, [displayValue]);
+  }, [displayValue, targetValue]);
   return <span>{displayValue}</span>;
 };
 

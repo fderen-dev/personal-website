@@ -1,15 +1,12 @@
 import React, {
-  FunctionComponent,
   useEffect,
   useState,
   useRef,
-  MutableRefObject,
 } from 'react';
 
 import SEO from '../components/SEO';
 import Gear from '../components/Gear';
 
-import '../components/Layout.scss';
 import './404.scss';
 
 const subtitles: Array<string> = [
@@ -18,9 +15,9 @@ const subtitles: Array<string> = [
   'Looking for something?',
 ];
 
-const NotFoundPage: FunctionComponent = () => {
+const NotFoundPage: React.FunctionComponent = () => {
   const [subtitleIdx, setSubtitleIdx] = useState<number>(0);
-  const intervalHandlerRef: MutableRefObject<NodeJS.Timeout | null> = useRef(
+  const intervalHandlerRef: React.MutableRefObject<NodeJS.Timeout | null> = useRef(
     null
   );
   useEffect(() => {
@@ -34,6 +31,7 @@ const NotFoundPage: FunctionComponent = () => {
         clearInterval(intervalHandlerRef.current);
     };
   }, [subtitleIdx]);
+
   return (
     <div className="not-found">
       <SEO />

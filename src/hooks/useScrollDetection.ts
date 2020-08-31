@@ -1,4 +1,4 @@
-import { useRef, MutableRefObject, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { getScrollPosition, Coordinates } from '../utils/utils';
 
 export type ScrollDirection = 'up' | 'down';
@@ -9,11 +9,11 @@ export interface ScrollData {
 
 export function useScrollDetection(
   targetFn: (scrollData: ScrollData) => void,
-  timeout: number
+  throttle: number
 ) {
-  const prevCordsRef: MutableRefObject<Coordinates> = useRef({ x: 0, y: 0 });
-  const isScrollingRef: MutableRefObject<boolean> = useRef(false);
-  const timeoutRef: MutableRefObject<NodeJS.Timer | null> = useRef(null);
+  const prevCordsRef: React.MutableRefObject<Coordinates> = useRef({ x: 0, y: 0 });
+  const isScrollingRef: React.MutableRefObject<boolean> = useRef(false);
+  const timeoutRef: React.MutableRefObject<NodeJS.Timer | null> = useRef(null);
 
   useLayoutEffect(() => {
     const targetElement: HTMLElement | null = window
@@ -21,6 +21,10 @@ export function useScrollDetection(
       : null;
     const callback = (isScrolling: boolean): void => {
       const currCords = getScrollPosition(targetElement);
+      console.log({
+        isScrolling: isScrolling,
+        scrollDirection: prevCordsRef.current.y > currCords.y ? 'down' : 'up',
+      });
       targetFn({
         isScrolling: isScrolling,
         scrollDirection: prevCordsRef.current.y > currCords.y ? 'down' : 'up',
@@ -38,7 +42,7 @@ export function useScrollDetection(
         callback(false);
         timeoutRef.current = null;
         isScrollingRef.current = false;
-      }, timeout);
+      }, throttle);
     };
 
     if (targetElement !== null)

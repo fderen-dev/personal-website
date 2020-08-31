@@ -1,4 +1,4 @@
-import { useRef, MutableRefObject, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { getScrollPosition, Coordinates } from '../utils/utils';
 
 export function useScrollPosition(
@@ -7,10 +7,10 @@ export function useScrollPosition(
   wait?: number,
   deps?: Array<any>
 ): void {
-  const prevCordsRef: MutableRefObject<Coordinates> = useRef(
+  const prevCordsRef: React.MutableRefObject<Coordinates> = useRef(
     getScrollPosition(targetElement)
   );
-  const throttleTimeoutRef: MutableRefObject<NodeJS.Timer | null> = useRef(
+  const throttleTimeoutRef: React.MutableRefObject<NodeJS.Timer | null> = useRef(
     null
   );
 
